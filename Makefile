@@ -1,8 +1,8 @@
 build_and_run:
-	docker build . -t wishlist_backend
-	docker run --name wishlist_backend -p 8080:8080 -d wishlist_backend
+	docker-compose up --build
 run:
-	docker run --name wishlist_backend -p 8080:8080 -d wishlist_backend
+	docker-compose up
 stop:
-	docker stop wishlist_backend
-	docker rm wishlist_backend
+	docker-compose stop
+	docker rm wishlist-backend
+	docker rm mongodb
