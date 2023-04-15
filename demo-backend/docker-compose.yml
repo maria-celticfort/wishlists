@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  demo-backend:
+    container_name: demo-backend
+    image: demo_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - demo-net
+    ports:
+      - 8085:8085
+    depends_on:
+      - demo-mongodb
+
+  demo-mongodb:
+    container_name: demo-mongodb
+    command: mongod --port 27015
+    image: mongo:6.0.5:demo-mongodb
+    env_file: ../.env
+    networks:
+      - demo-net
+    ports:
+      - 27015:27015
+    volumes:
+      - demo-mongodb:/usr/data/demo-mongo-data
+
+networks:
+  demo-net:
+    driver: bridge
+
+volumes:
+  demo-mongodb:
