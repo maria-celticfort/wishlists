@@ -16,7 +16,7 @@ services:
   demo-mongodb:
     container_name: demo-mongodb
     command: mongod --port 27015
-    image: mongo:6.0.5:demo-mongodb
+    image: mongo:6.0.5
     env_file: ../.env
     networks:
       - demo-net
