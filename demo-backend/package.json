@@ -1,0 +1,21 @@
+{
+  "name": "demo_backend",
+  "version": "0.0.1",
+  "description": "Node.js on Docker",
+  "author": "maria-celtcfort",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maria-celticfort/wishlists.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maria-celticfort/wishlists/issues"
+  },
+  "homepage": "https://github.com/maria-celticfort/wishlists#readme"
+}

@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  wishlist-backend:
+    container_name: wishlists-backend
+    image: wishlists_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - wishlists-net
+    ports:
+      - 8080:8080
+    depends_on:
+      - wishlist-mongodb
+
+  wishlist-mongodb:
+    container_name: wishlists-mongodb
+    image: mongo:6.0.5
+    env_file: ../.env
+    networks:
+      - wishlists-net
+    ports:
+      - 27017:27017
+    volumes:
+      - wishlists-mongodb:/usr/data/wishlists-mongo-data
+
+networks:
+  wishlists-net:
+    driver: bridge
+
+volumes:
+  wishlists-mongodb:
